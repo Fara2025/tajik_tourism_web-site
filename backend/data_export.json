@@ -1,0 +1,52 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$lWzXjlLWBNXWcWeYMbpE0e$ozivl5DDhaDF72uS4kps6juBrrre5stKYg1Pobu9iNI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "student",
+    "first_name": "Farhunda",
+    "last_name": "Hoshimova",
+    "email": "student@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T12:11:14.297Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$aYKi4qZ9LI4LRyptDAcHFG$BV9WHEmHh9jW94vPZQG9RSsCQVWGC2mnp0YA5ebIJ7w=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Fara",
+    "first_name": "¬¶¬Ñ¬â¬Ñ",
+    "last_name": "¬·¬à¬ê¬Ú¬Þ¬à¬Ó¬Ñ",
+    "email": "linattkorea1@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T13:29:29.872Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "tourism.category",
+  "pk": 1,
+  "fields": {
+    "name": "Museum",
+    "name_ru": "¬®¬å¬Ù¬Ö¬Û",
+    "name_tj": "¬°¬ã¬à¬â¬ç¬à¬ß¬Ñ",
+    "description": null
+  }
+},
+{
+  "model": "tourism.category",
+  "pk": 2,
+  "fields": {
+    "name": "Monument",
+    "name_ru": "¬±¬Ñ¬Þ¬ñ¬ä¬ß¬Ú¬Ü",
+    "name_tj": 
