@@ -1,0 +1,22 @@
+# Dependency directories
+node_modules/
+venv/
+.venv/
+env/
+OLD_COPIES/
+backend_production.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+db.sqlite3
+
+# Build
+build/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
