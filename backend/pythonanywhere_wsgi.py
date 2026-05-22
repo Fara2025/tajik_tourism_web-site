@@ -7,12 +7,12 @@ import sys
 
 # Путь к папке backend вашего проекта на PythonAnywhere
 # После загрузки файлов на PythonAnywhere, убедитесь что путь правильный
-path = '/home/Farrraa/tajik_tourism/backend'
+path = '/home/farrraa/tajik_tourism/backend'
 if path not in sys.path:
     sys.path.append(path)
 
 # Активируем virtualenv
-activate_this = '/home/Farrraa/.virtualenvs/venv/bin/activate_this.py'
+activate_this = '/home/farrraa/.virtualenvs/venv/bin/activate_this.py'
 with open(activate_this) as f:
     exec(f.read(), {'__file__': activate_this})
 
