@@ -7,7 +7,7 @@ import sys
 
 # Путь к папке backend вашего проекта на PythonAnywhere
 # После загрузки файлов на PythonAnywhere, убедитесь что путь правильный
-path = '/home/farrraa/tajik_tourism/backend'
+path = '/home/farrraa/tajik_tourism_web-site/backend'
 if path not in sys.path:
     sys.path.append(path)
 
