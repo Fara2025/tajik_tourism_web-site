@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createBooking } from '../api';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -24,28 +25,18 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, serviceNam
     setStatus('loading');
 
     try {
-      const response = await fetch('http://localhost:8000/api/bookings/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_name: serviceName,
-          service_type: serviceType,
-          ...formData,
-        }),
+      await createBooking({
+        service_name: serviceName,
+        service_type: serviceType,
+        ...formData,
       });
 
-      if (response.ok) {
-        setStatus('success');
-        setTimeout(() => {
-          onClose();
-          setStatus('idle');
-          setFormData({ customer_name: '', customer_email: '', customer_phone: '', booking_date: '' });
-        }, 3000);
-      } else {
-        setStatus('error');
-      }
+      setStatus('success');
+      setTimeout(() => {
+        onClose();
+        setStatus('idle');
+        setFormData({ customer_name: '', customer_email: '', customer_phone: '', booking_date: '' });
+      }, 3000);
     } catch (error) {
       console.error('Booking error:', error);
       setStatus('error');

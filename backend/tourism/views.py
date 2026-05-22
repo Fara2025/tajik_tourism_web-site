@@ -18,6 +18,17 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
     serializer_class = ContactMessageSerializer
     permission_classes = [AllowAny]
 
+    def perform_create(self, serializer):
+        contact_message = serializer.save()
+        try:
+            from .emails import send_contact_emails
+            send_contact_emails(contact_message)
+        except Exception as e:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"Error triggering contact email: {e}")
+
+
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -104,5 +115,16 @@ class BookingViewSet(viewsets.ModelViewSet):
         # Если пользователь авторизован, он видит свои бронирования
         # Если нет (для теста) - все (или пустой список)
         if self.request.user.is_authenticated:
-            return Booking.objects.filter(email=self.request.user.email)
+            return Booking.objects.filter(customer_email=self.request.user.email)
         return Booking.objects.all()
+
+    def perform_create(self, serializer):
+        booking = serializer.save()
+        try:
+            from .emails import send_booking_emails
+            send_booking_emails(booking)
+        except Exception as e:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"Error triggering booking email: {e}")
+
